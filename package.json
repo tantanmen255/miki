@@ -1,0 +1,24 @@
+{
+  "name": "miki",
+  "version": "0.0.1",
+  "description": "miki wonderful",
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "main": "miki.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "express": "~4.14.0",
+    "nodejs-websocket": "",
+    "express-ws": "",
+    "https-proxy-agent": "^2.0.0",
+    "body-parser": ""
+  },
+  "devDependencies": {
+    "opn": "^5.1.0"
+  }
+}

@@ -1,0 +1,7 @@
+.vscode
+.idea
+.DS_Store
+npm-debug.log
+node_modules/
+apikey.txt
+
