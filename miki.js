@@ -19,7 +19,7 @@ require('./ok/ticker');
 
 
 app.listen(32768,function(){
-  opn('http://127.0.0.1:10086/test2', {app: ['chrome']})
+  //opn('http://127.0.0.1:10086/test2', {app: ['chrome']})
 });
 
 app.get('/hello',function(req,res){
