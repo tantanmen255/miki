@@ -7,7 +7,7 @@
   },
   "main": "miki.js",
   "scripts": {
-    "test": "mocha"
+    "test": "node src/miki.js"
   },
   "license": "MIT",
   "dependencies": {
