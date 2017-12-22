@@ -5,9 +5,10 @@
   "engines": {
     "node": ">=7.6.0"
   },
-  "main": "miki.js",
+  "main": "src/miki.js",
   "scripts": {
-    "test": "node src/miki.js"
+    "start": "mocha",
+    "test": "mocha"
   },
   "license": "MIT",
   "dependencies": {
