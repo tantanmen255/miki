@@ -1,4 +1,4 @@
 # miki
  npm install
  
- node miki.js
+ node index.js

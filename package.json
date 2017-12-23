@@ -5,11 +5,12 @@
   "engines": {
     "node": ">=7.6.0"
   },
-  "main": "src/miki.js",
+  "main": "index.js",
   "scripts": {
-    "start": "mocha",
+    "start": "node server.js",
     "test": "mocha"
   },
+  "repository": "github:maxtangli/miki",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.16.1",
@@ -17,7 +18,8 @@
     "nodejs-websocket": "",
     "express-ws": "",
     "https-proxy-agent": "^2.0.0",
-    "body-parser": ""
+    "body-parser": "",
+    "request": ""
   },
   "devDependencies": {
     "opn": "^5.1.0",

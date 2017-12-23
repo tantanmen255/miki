@@ -15,20 +15,14 @@ class Agent {
     work() {
         return this.market.fetchPrice().then(price => {
             this.priceHistory.add(price);
+            if (this.active) console.log('ltp: ' + price);
         }).catch(reason => {
-            console.log('failed to fetchPrice.');
+            console.log(reason);
         }).then(() => {
-            if (this.active) {
-                this.work();
-            }
-            ;
+            if (this.active) this.work();
         });
     }
 }
-
-// fetch and save price
-// idle: if trend.isUp: buy(), state=hold
-// hold: upaate sellAtPrice. if price < sellAtPrice, sell(), state=hold
 
 class PriceHistory {
     constructor() {
