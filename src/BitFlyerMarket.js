@@ -21,10 +21,10 @@ class BitFlyerMarket {
                     json: true
                 };
                 request(options, (err, response, body) => {
-                    if (response.statusCode === 200) {
+                    if (response && response.statusCode === 200) {
                         resolve(new Ticker(body));
                     } else {
-                        reject(err);
+                        reject('err:' + err + ',response.statusCode:' + (response && response.statusCode));
                     }
                 });
             }, this.requestInterval);

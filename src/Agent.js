@@ -16,7 +16,6 @@ class Agent {
         return this.market.fetchTicker().then(ticker => {
             this.priceHistory.add(ticker.getLtp());
             if (this.active) {
-                console.log(ticker.getLtp());
                 console.log(ticker.getCsv());
             }
         }).catch(reason => {
