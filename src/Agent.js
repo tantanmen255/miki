@@ -13,13 +13,18 @@ class Agent {
     }
 
     work() {
-        return this.market.fetchPrice().then(price => {
-            this.priceHistory.add(price);
-            if (this.active) console.log('ltp: ' + price);
+        return this.market.fetchTicker().then(ticker => {
+            this.priceHistory.add(ticker.getLtp());
+            if (this.active) {
+                console.log(ticker.getLtp());
+                console.log(ticker.getCsv());
+            }
         }).catch(reason => {
             console.log(reason);
         }).then(() => {
-            if (this.active) this.work();
+            if (this.active) {
+                this.work();
+            }
         });
     }
 }
@@ -46,6 +51,4 @@ class PriceHistory {
     }
 }
 
-module.exports = {
-    Agent: Agent
-};
+module.exports = Agent;

@@ -8,6 +8,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
+    "start_debug": "node server.js debug",
     "test": "mocha"
   },
   "repository": "github:maxtangli/miki",

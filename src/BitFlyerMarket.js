@@ -1,30 +1,28 @@
 'use strict';
 
 const request = require('request');
+const Ticker = require('./Ticker');
 
 class BitFlyerMarket {
     constructor(requestInterval = 500) {
-        /*
-        API Limits
-        - The private API is limited to approx. 200 queries per minute
-        - Each IP address is limited to approx. 500 queries per minute
-        */
+        /**
+         * API Limits
+         * - The private API is limited to approx. 200 queries per minute
+         * - Each IP address is limited to approx. 500 queries per minute
+         */
         this.requestInterval = Math.max(500, requestInterval);
     }
 
-    fetchPrice() {
+    fetchTicker() {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                let path = '/v1/getticker';
-                let query = '';
-                let url = 'https://api.bitflyer.jp' + path + query;
                 let options = {
-                    url: url,
+                    url: 'https://api.bitflyer.jp/v1/getticker',
                     json: true
                 };
-                request(options, function (err, response, body) {
+                request(options, (err, response, body) => {
                     if (response.statusCode === 200) {
-                        resolve(body.ltp);
+                        resolve(new Ticker(body));
                     } else {
                         reject(err);
                     }
@@ -33,19 +31,17 @@ class BitFlyerMarket {
         });
     }
 
-    buy(orderId, buyPrice) {
+    buy(price) {
         return new Promise((resolve, reject) => {
             setTimeout(res => resolve(res), 1, 'error: todo');
         });
     }
 
-    sell(orderId, sellPrice) {
+    sell(orderId, price) {
         return new Promise((resolve, reject) => {
             setTimeout(res => resolve(res), 1, 'error: todo');
         });
     }
 }
 
-module.exports = {
-    BitFlyerMarket: BitFlyerMarket
-};
+module.exports = BitFlyerMarket;

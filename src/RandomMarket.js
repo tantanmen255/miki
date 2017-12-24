@@ -1,26 +1,17 @@
 'use strict';
 
+const Ticker = require('./Ticker');
+
 class RandomMarket {
     constructor() {
-        this.randomPrice = new RandomPrice(765961, -100, 100);
+        this.randomTicker = new RandomTicker(new RandomPrice(765961, -100, 100));
     }
 
-    fetchPrice() {
+    fetchTicker() {
         return new Promise((resolve, reject) => {
-            this.randomPrice.generate();
-            setTimeout(price => resolve(price), 1, this.randomPrice.current);
-        });
-    }
-
-    buy(orderId, buyPrice) {
-        return new Promise((resolve, reject) => {
-            setTimeout(res => resolve(res), 1, 'ok');
-        });
-    }
-
-    sell(orderId, sellPrice) {
-        return new Promise((resolve, reject) => {
-            setTimeout(res => resolve(res), 1, 'ok');
+            setTimeout(() => {
+                resolve(this.randomTicker.generate().getCurrent());
+            }, 1);
         });
     }
 }
@@ -46,6 +37,28 @@ class RandomPrice {
     }
 }
 
-module.exports = {
-    RandomMarket: RandomMarket
-};
+class RandomTicker {
+    constructor(randomPrice) {
+        this.randomPrice = randomPrice;
+    }
+
+    getCurrent() {
+        let currentPrice = this.randomPrice.getCurrent();
+        let json = {
+            timestamp: 'timestamp',
+            best_ask: currentPrice + 1,
+            ltp: currentPrice,
+            best_bid: currentPrice - 1,
+            volume: 7725,
+            volume_by_product: 5277
+        };
+        return new Ticker(json);
+    }
+
+    generate() {
+        this.randomPrice.generate();
+        return this;
+    }
+}
+
+module.exports = RandomMarket;
