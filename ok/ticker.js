@@ -1,5 +1,5 @@
 var ws = require("nodejs-websocket")
-var conn = ws.connect("wss://real.okex.com:10440/websocket/okexapi");
+var conn = ws.connect("wss://real.okex.com:10441/websocket");
 var fs = require('fs');
 var http = require('http');
 var https = require('https');
@@ -7,12 +7,13 @@ var crypto=require('crypto');
 
 setTimeout(function(){
   console.log(111);
-  conn.send("{'event':'addChannel','channel':'ok_sub_futureusd_eth_ticker_next_week'}");
+  conn.send("{'event':'addChannel','channel':'ok_sub_spot_dgd_bch_ticker'}");
 },2000);
+
 
 conn.on('text',function(tickerdatastr){
   var tickerdata = eval('('+tickerdatastr+')');
-  handle(tickerdata[0]);
+  console.log(tickerdata);
 });
 
 function handle(tickerdata){
@@ -155,9 +156,6 @@ function cancel(orderid,contract_type){
 
 //realtype 1:开多   2:开空   3:平多   4:平空(1=4,2=3)
 function trade(realtype,contract_type,price,amount,callback){
-  if(realtype==2||realtype==4){
-    return;
-  }
   console.log('will trade');
   var param = {};
   param.symbol='eth_usd';
