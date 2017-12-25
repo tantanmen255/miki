@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('./src/miki');
+module.exports = require('./lib/miki');
