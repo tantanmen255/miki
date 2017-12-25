@@ -18,6 +18,7 @@ class Ticker {
      *}
      */
     constructor(json) {
+        // todo validate
         this.json = json;
     }
 

@@ -1,18 +1,19 @@
 'use strict';
 
+const Market = require('./Market');
 const Ticker = require('./Ticker');
+const Util = require('./Util');
 
-class RandomMarket {
+class RandomMarket extends Market {
     constructor() {
+        super();
         this.randomTicker = new RandomTicker(new RandomPrice(765961, -100, 100));
     }
 
-    fetchTicker() {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(this.randomTicker.generate().getCurrent());
-            }, 1);
-        });
+    async fetchTicker() {
+        await Util.waitTimeout(1);
+
+        return this.randomTicker.generate().getCurrent();
     }
 }
 

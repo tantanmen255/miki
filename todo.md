@@ -7,3 +7,7 @@
 - [x] Agent, RandomMarket: 2.5h
 - [x] BitflyerMarket: 2h
 - [x] Ticker: 2h
+- [x] refactor: await&async, axios, module. 1.5h
+
+2.history
+- [ ] CsvMarket 0.5h

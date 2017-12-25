@@ -1,10 +1,13 @@
 'use strict';
 
-const request = require('request');
+const axios = require('axios');
+const Market = require('./Market');
 const Ticker = require('./Ticker');
+const Util = require('./Util');
 
-class BitFlyerMarket {
+class BitFlyerMarket extends Market {
     constructor(requestInterval = 500) {
+        super();
         /**
          * API Limits
          * - The private API is limited to approx. 200 queries per minute
@@ -13,34 +16,26 @@ class BitFlyerMarket {
         this.requestInterval = Math.max(500, requestInterval);
     }
 
-    fetchTicker() {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                let options = {
-                    url: 'https://api.bitflyer.jp/v1/getticker',
-                    json: true
-                };
-                request(options, (err, response, body) => {
-                    if (response && response.statusCode === 200) {
-                        resolve(new Ticker(body));
-                    } else {
-                        reject('err:' + err + ',response.statusCode:' + (response && response.statusCode));
-                    }
-                });
-            }, this.requestInterval);
+    async fetchTicker() {
+        await Util.waitTimeout(this.requestInterval);
+
+        let res = await axios({
+            url: 'https://api.bitflyer.jp/v1/getticker',
+            validateStatus: status => status === 200
         });
+        // throw err
+
+        return new Ticker(res.data);
     }
 
-    buy(price) {
-        return new Promise((resolve, reject) => {
-            setTimeout(res => resolve(res), 1, 'error: todo');
-        });
+    async buy(price) {
+        await Util.waitTimeout(1);
+        throw 'error: todo';
     }
 
-    sell(orderId, price) {
-        return new Promise((resolve, reject) => {
-            setTimeout(res => resolve(res), 1, 'error: todo');
-        });
+    async sell(orderId, price) {
+        await Util.waitTimeout(1);
+        throw 'error: todo';
     }
 }
 

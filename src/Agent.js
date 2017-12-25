@@ -1,5 +1,4 @@
 'use strict';
-const util = require('util');
 
 class Agent {
     constructor(market, active = true) {
@@ -12,19 +11,21 @@ class Agent {
         return this.priceHistory;
     }
 
-    work() {
-        return this.market.fetchTicker().then(ticker => {
+    async work() {
+        try {
+            let ticker = await this.market.fetchTicker();
+
             this.priceHistory.add(ticker.getLtp());
             if (this.active) {
                 console.log(ticker.getCsv());
             }
-        }).catch(reason => {
-            console.log(reason);
-        }).then(() => {
-            if (this.active) {
-                this.work();
-            }
-        });
+        } catch (err) {
+            console.log(err);
+        }
+
+        if (this.active) {
+            this.work();
+        }
     }
 }
 
