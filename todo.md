@@ -9,5 +9,6 @@
 - [x] Ticker: 2h
 - [x] refactor: await&async, axios, module. 1.5h
 
-2.history
-- [ ] CsvMarket 0.5h
+2.virtual trade
+- [x] ChronoCrossMarket 2h
+- [ ] trade 0.5h
