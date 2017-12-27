@@ -1,11 +1,11 @@
 'use strict';
 
 const expect = require('chai').expect;
-const {Agent, RandomMarket, BitFlyerMarket, ChronoCrossMarket} = require('../index');
+const {Agent, RandomMarket, BitFlyerMarket, ChronoCrossMarket, Util} = require('../index');
 
 let works = (market, n) => {
     return async () => {
-        let agent = new Agent(market, false);
+        let agent = new Agent(market, false, false);
         for (let i = 1; i <= n; ++i) {
             await agent.work();
             expect(agent._priceHistory.count).to.be.equal(i);
@@ -15,10 +15,9 @@ let works = (market, n) => {
 };
 
 describe('Agent', () => {
-    describe('#work()', () => {
+    describe('#work()', async () => {
         it('should works for RandomMarket', works(new RandomMarket(), 5));
-        it('should works for BitFlyerMarket', works(new BitFlyerMarket(), 2));
+        it('should works for BitFlyerMarket', works(new BitFlyerMarket(), 1));
         // todo test BitFlyerMarket error handling
-        it('should works for ChronoCrossMarket', works(new ChronoCrossMarket('log/log_171225_16-19.csv'), 5));
     });
 });

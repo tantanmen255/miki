@@ -11,4 +11,6 @@
 
 2.virtual trade
 - [x] ChronoCrossMarket 2h
-- [ ] trade 0.5h
+- [x] trade 2h
+- [x] refactor: Ticker, Util, Limiter 1.5h
+- [ ] refactor: Order, ChronoCrossMarket 2.5h
