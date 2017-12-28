@@ -13,4 +13,12 @@
 - [x] ChronoCrossMarket 2h
 - [x] trade 2h
 - [x] refactor: Ticker, Util, Limiter 1.5h
-- [ ] refactor: Order, ChronoCrossMarket 2.5h
+- [x] refactor: Order, ChronoCrossMarket 3.5h
+- [x] refactor: test 1h
+- [x] refactor: AssetDelta 1h
+- [x] refactor: Broker 0.5h
+- [x] refactor: Agent 0.5h
+
+3.statistic
+- [ ] evaluate performance
+- [ ] strategy to catch trend

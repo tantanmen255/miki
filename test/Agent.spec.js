@@ -5,7 +5,7 @@ const {Agent, RandomMarket, BitFlyerMarket, ChronoCrossMarket, Util} = require('
 
 let works = (market, n) => {
     return async () => {
-        let agent = new Agent(market, false, false);
+        let agent = new Agent(market, false);
         for (let i = 1; i <= n; ++i) {
             await agent.work();
             expect(agent._priceHistory.count).to.be.equal(i);

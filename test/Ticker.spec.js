@@ -6,7 +6,7 @@ const {Ticker} = require('../index');
 describe('Ticker', () => {
     describe('#constructor()', () => {
         let csv = '2017-12-25T07:01:09.267,1615799,1615796,1614410,115948.20719942,20364.63616284';
-        it('should accept json of string', () => {
+        it('should embrace json of string', () => {
             let json = {
                 timestamp: '2017-12-25T07:01:09.267',
                 best_ask: '1615799',
@@ -21,7 +21,7 @@ describe('Ticker', () => {
             expect(ticker.csv).to.be.equal(csv);
         });
 
-        it('should accept json of int', () => {
+        it('should embrace json of int', () => {
             let json = {
                 timestamp: '2017-12-25T07:01:09.267',
                 best_ask: 1615799,
