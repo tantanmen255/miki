@@ -1,8 +1,9 @@
 'use strict'
 
-const {Agent, BitFlyerMarket, RandomMarket} = require('./index');
+const {Agent, BitFlyerMarket} = require('./index');
 
-let debug = (process.argv[2] === 'debug');
-let market = debug ? new RandomMarket() : new BitFlyerMarket(1000);
-let agent = new Agent(market);
+let production = (process.argv[2] === 'production');
+
+let market = new BitFlyerMarket(1000);
+let agent = new Agent(market, production);
 agent.keepWorking();

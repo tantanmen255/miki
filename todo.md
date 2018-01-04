@@ -20,5 +20,7 @@
 - [x] refactor: Agent 0.5h
 
 3.statistic
+- bug: redirect output failed after an exception thrown 0.5h
+- [x] a logger support file rolling: winston 1.5h
 - [ ] evaluate performance
 - [ ] strategy to catch trend
