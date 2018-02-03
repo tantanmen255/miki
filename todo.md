@@ -23,7 +23,8 @@
 - [x] refactor: Agent 0.5h
 
 3.technical analyze
-- [ ] index 1h
+- [x] index 2h
+- [ ] analyze 1s, 2s, 4s index
 - [ ] strategy
 
 4.serious client

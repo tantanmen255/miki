@@ -6,6 +6,13 @@ const {Ticker} = require('../index');
 describe('Ticker', () => {
     describe('#constructor()', () => {
         let csv = '2017-12-25T07:01:09.267,1615799,1615796,1614410,115948.20719942,20364.63616284';
+        it('should embrace string', () => {
+            let ticker = new Ticker(csv);
+            expect(ticker.timestamp).to.be.equal('2017-12-25T07:01:09.267');
+            expect(ticker.ltp).to.be.equal(1615796);
+            expect(ticker.csv).to.be.equal(csv);
+        });
+
         it('should embrace json of string', () => {
             let json = {
                 timestamp: '2017-12-25T07:01:09.267',
