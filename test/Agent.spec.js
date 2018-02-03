@@ -8,8 +8,6 @@ let works = (market, n) => {
         let agent = new Agent(market);
         for (let i = 1; i <= n; ++i) {
             await agent.work();
-            expect(agent._priceHistory.count).to.be.equal(i);
-            expect(agent._priceHistory.last).to.be.above(0);
         }
     };
 };

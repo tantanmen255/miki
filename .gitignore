@@ -7,3 +7,4 @@ apikey.txt*
 secretkey.txt*
 package-lock.json
 
+log/
