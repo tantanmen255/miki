@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node server.js production",
     "test": "mocha",
+    "genIndex": "node genIndex.js log/2018-02-03.log_ticker.csv",
     "try": "node try.js"
   },
   "repository": "github:maxtangli/miki",
@@ -20,7 +21,7 @@
     "csv": "^2.0.0",
     "express": "~4.14.0",
     "express-ws": "",
-    "fs-readfile-promise": "^3.0.1",
+    "fs-extra": "^5.0.0",
     "https-proxy-agent": "^2.0.0",
     "nodejs-websocket": "",
     "winston": "^2.4.0",
@@ -28,7 +29,7 @@
   },
   "devDependencies": {
     "mocha": "^4.1.0",
-    "opn": "^5.1.0",
+    "opn": "^5.2.0",
     "sinon": "^3.2.0"
   }
 }
