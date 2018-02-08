@@ -27,9 +27,14 @@
 - [x] analyze 0.5h
 
 - [x] parse index logs: date.log -> date.index.1s/2s/4s.log 1h
-- [ ] analyze index logs: v, a, ltp-delta. 0.5h
+- analyze: index logs of v, a, ltp-delta. 1h
 
-- [ ] raw strategy: use 4s log, up=v>0 -> buy, down=v<0 -> sell.
+- [x] refactor: advanced order 2h
+- [x] refactor: broker 0.8h
+- [ ] refactor: trade strategy
+
+- analyze: strategy 0.5h
+- [ ] random strategy: if 1000 ticker passed, buy/sell at ltp.
 - [ ] strategy test: log + strategy -> benefit%, order history.
 
 4.serious client

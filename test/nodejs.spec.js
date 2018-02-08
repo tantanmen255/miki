@@ -12,4 +12,18 @@ describe('nodejs', () => {
             expect(a).to.not.have.same.members([1, 3]);
         });
     });
+
+    describe('#?', () => {
+        it('should accept left value', () => {
+            expect(this.ax).to.equal(undefined);
+
+            let x = this.aX ? this.ax : (this.ax = 1);
+            expect(x).to.equal(1);
+            expect(this.ax).to.equal(1);
+
+            x = this.aX ? this.ax : (this.ax = 1);
+            expect(x).to.equal(1);
+            expect(this.ax).to.equal(1);
+        });
+    });
 });
