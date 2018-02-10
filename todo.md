@@ -30,12 +30,13 @@
 - analyze: index logs of v, a, ltp-delta. 1h
 
 - [x] refactor: advanced order 2h
-- [x] refactor: broker 0.8h
-- [ ] refactor: trade strategy
+- [x] refactor: broker&order 0.8h
+- [x] refactor: agent&strategy 0.5h
+- [x] refactor: move broker into agent 0.5h
 
-- analyze: strategy 0.5h
-- [ ] random strategy: if 1000 ticker passed, buy/sell at ltp.
+- [ ] OpenEyeBlind: if 1000 ticker passed, buy/sell at ltp.
 - [ ] strategy test: log + strategy -> benefit%, order history.
+- analyze: serious strategy 0.5h
 
 4.serious client
 - [ ] websocket ticker

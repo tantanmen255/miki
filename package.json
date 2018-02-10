@@ -7,10 +7,10 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node server.js production",
+    "start": "node bin/logBitflyer.js",
     "test": "mocha",
-    "genIndex": "node genIndex.js log/2018-02-03.log_ticker.csv",
-    "try": "node try.js"
+    "genIndex": "node bin/genIndex.js log/2018-02-03.log_ticker.csv",
+    "try": "node bin/try.js"
   },
   "repository": "github:maxtangli/miki",
   "license": "MIT",

@@ -1,6 +1,6 @@
 'use strict'
 
-const {Agent, ChronoCrossMarket, Util, Ticker, Index} = require('./index');
+const {Agent, ChronoCrossMarket, Util, Ticker, Index} = require('../index');
 
 let file = process.argv[2];
 

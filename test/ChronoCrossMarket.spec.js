@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const {ChronoCrossMarket, Ticker, Util, Order, OrderType, OrderTrigger} = require('../index');
+const {Agent, ChronoCrossMarket, Ticker, Util, Order, OrderType, OrderTrigger} = require('../index');
 
 describe('ChronoCrossMarket', () => {
     describe('#constructor()', () => {
@@ -16,33 +16,34 @@ describe('ChronoCrossMarket', () => {
             let market = new ChronoCrossMarket(jsonArray);
             expect(market.isOpened, 'market.isOpened').to.be.true;
 
-            expect(market.broker.asset.coin).to.be.equal(0);
-            expect(market.broker.asset.currency).to.be.equal(1000000);
-            expect(market.broker.orderList).to.have.length(0);
+            let agent = new Agent(market);
+            expect(agent.broker.asset.coin).to.be.equal(0);
+            expect(agent.broker.asset.currency).to.be.equal(1000000);
+            expect(agent.broker.orderList).to.have.length(0);
 
-            await market.broker.requestOpenOrder(
+            await agent.broker.requestOpenOrder(
                 new Order(OrderType.bid, 0.11, OrderTrigger.limit(1670000))
             );
-            expect(market.broker.asset.coin).to.be.equal(0);
-            expect(market.broker.asset.currency).to.be.equal(1000000);
-            expect(market.broker.orderList).to.have.length(1);
+            expect(agent.broker.asset.coin).to.be.equal(0);
+            expect(agent.broker.asset.currency).to.be.equal(1000000);
+            expect(agent.broker.orderList).to.have.length(1);
 
-            await market.fetchTicker();
-            expect(market.broker.asset.coin).to.be.equal(0.11);
-            expect(market.broker.asset.currency).to.be.equal(1000000 - 0.11 * 1670000);
-            expect(market.broker.orderList).to.have.length(0);
+            await agent.work();
+            expect(agent.broker.asset.coin).to.be.equal(0.11);
+            expect(agent.broker.asset.currency).to.be.equal(1000000 - 0.11 * 1670000);
+            expect(agent.broker.orderList).to.have.length(0);
 
-            await market.broker.requestOpenOrder(
+            await agent.broker.requestOpenOrder(
                 new Order(OrderType.ask, 0.1, OrderTrigger.limit(1650000))
             );
-            expect(market.broker.asset.coin).to.be.equal(0.11);
-            expect(market.broker.asset.currency).to.be.equal(1000000 - 0.11 * 1670000);
-            expect(market.broker.orderList).to.have.length(1);
+            expect(agent.broker.asset.coin).to.be.equal(0.11);
+            expect(agent.broker.asset.currency).to.be.equal(1000000 - 0.11 * 1670000);
+            expect(agent.broker.orderList).to.have.length(1);
 
-            await market.fetchTicker();
-            expect(market.broker.asset.coin).to.be.equal(0.11 - 0.1);
-            expect(market.broker.asset.currency).to.be.equal(1000000 - 0.11 * 1670000 + 0.1 * 1650000);
-            expect(market.broker.orderList).to.have.length(0);
+            await agent.work();
+            expect(agent.broker.asset.coin).to.be.equal(0.11 - 0.1);
+            expect(agent.broker.asset.currency).to.be.equal(1000000 - 0.11 * 1670000 + 0.1 * 1650000);
+            expect(agent.broker.orderList).to.have.length(0);
         });
     });
 });
