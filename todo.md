@@ -25,18 +25,18 @@
 3.technical analyze
 - [x] index 2h
 - [x] analyze 0.5h
-
 - [x] parse index logs: date.log -> date.index.1s/2s/4s.log 1h
 - analyze: index logs of v, a, ltp-delta. 1h
+- analyze: serious strategy 0.5h
 
 - [x] refactor: advanced order 2h
 - [x] refactor: broker&order 0.8h
 - [x] refactor: agent&strategy 0.5h
 - [x] refactor: move broker into agent 0.5h
 
-- [ ] OpenEyeBlind: if 1000 ticker passed, buy/sell at ltp.
-- [ ] strategy test: log + strategy -> benefit%, order history.
-- analyze: serious strategy 0.5h
+- [x] OpenEyeBlind: if 1000 ticker passed, buy/sell immediate. 0.5h
+- [x] Report: profit, orderHistory 1h
+- how to evaluate a trade algorithm?
 
 4.serious client
 - [ ] websocket ticker

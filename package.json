@@ -10,6 +10,7 @@
     "start": "node bin/logBitflyer.js",
     "test": "mocha",
     "genIndex": "node bin/genIndex.js log/2018-02-03.log_ticker.csv",
+    "genReport": "node bin/genReport.js log/2018-02-03.log_ticker.csv",
     "try": "node bin/try.js"
   },
   "repository": "github:maxtangli/miki",
