@@ -11,6 +11,7 @@
 
 - bug: redirect output failed after an exception thrown 0.5h
 - [x] a logger support file rolling: winston 1.5h
+- bug: powershell stopped after exception thrown.
 
 2.virtual trade 12h
 - [x] ChronoCrossMarket 2h
