@@ -37,9 +37,16 @@
 
 - [x] OpenEyeBlind: if 1000 ticker passed, buy/sell immediate. 0.5h
 - [x] Report: profit, orderHistory 1h
-- how to evaluate a trade algorithm?
 
-4.serious client
+- how to evaluate a trade algorithm?
+- [x] report of OpenEyeBlind 0.5h
+- [x] report of raw BuyingWinnerSellingLoser 1h // cash printer, or black hole, that's the problem.
+- [ ] bug: can't afford 1 coin since failed trade
+
+4.brain storm
+- possible to find a cash printer trade algorithm?
+
+5.serious client
 - [ ] websocket ticker
 - [ ] auth, order
 - [ ] html ui

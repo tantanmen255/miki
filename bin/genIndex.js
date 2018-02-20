@@ -2,7 +2,7 @@
 
 const {Agent, ChronoCrossMarket, Util, Ticker, Index} = require('../index');
 
-let file = process.argv[2];
+let file = 'log/2018-02-03.log_ticker.csv';
 
 (async () => {
     let market = await ChronoCrossMarket.fromFile(file);
