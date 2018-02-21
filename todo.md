@@ -41,7 +41,11 @@
 - how to evaluate a trade algorithm?
 - [x] report of OpenEyeBlind 0.5h
 - [x] report of raw BuyingWinnerSellingLoser 1h // cash printer, or black hole, that's the problem.
-- [ ] bug: can't afford 1 coin since failed trade
+
+- [x] ChronoCrossMarketTest: initial asset
+- [x] bug: can't afford 1 coin since failed trade -> Order.closeAmount 1.5h
+- [ ] optimize genReport: 40s -> ?
+- [ ] better report
 
 4.brain storm
 - possible to find a cash printer trade algorithm?
