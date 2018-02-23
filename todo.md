@@ -23,7 +23,7 @@
 - [x] refactor: Broker 0.5h
 - [x] refactor: Agent 0.5h
 
-3.technical analyze
+3.technical analyze 13.5h
 - [x] index 2h
 - [x] analyze 0.5h
 - [x] parse index logs: date.log -> date.index.1s/2s/4s.log 1h
@@ -31,7 +31,7 @@
 - analyze: serious strategy 0.5h
 
 - [x] refactor: advanced order 2h
-- [x] refactor: broker&order 0.8h
+- [x] refactor: broker&order 1h
 - [x] refactor: agent&strategy 0.5h
 - [x] refactor: move broker into agent 0.5h
 
@@ -44,11 +44,13 @@
 
 - [x] ChronoCrossMarketTest: initial asset
 - [x] bug: can't afford 1 coin since failed trade -> Order.closeAmount 1.5h
-- [ ] optimize genReport: 40s -> ?
-- [ ] better report
 
-4.brain storm
-- possible to find a cash printer trade algorithm?
+- search: nodejs optimize 1h
+- [x] optimize genReport: Util.readCsvString remove array.map(combine) 40s -> 30s 0.5h
+- [x] optimize genReport: simplify Ticker 30s -> 5s 0.5h
+
+4.brain storm: possible to find a cash printer trade algorithm?
+- [ ] serious BuyingWinnerSellingLoser
 
 5.serious client
 - [ ] websocket ticker

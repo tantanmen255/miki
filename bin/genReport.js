@@ -1,10 +1,9 @@
 'use strict'
 
-const {Agent, ChronoCrossMarket, OpenEyeBlind, BuyingWinnerSellingLoser} = require('../index');
-
-// let file = process.argv[2];
+const {Agent, ChronoCrossMarket, OpenEyeBlind, BuyingWinnerSellingLoser, Util, Ticker} = require('../index');
 
 (async () => {
+    // let file = process.argv[2];
     let files = [
         // '01-17', '01-18', '01-19', '01-20', '01-22',
         // '01-23', '01-24', '01-27', '01-28', '01-29',
@@ -19,15 +18,15 @@ const {Agent, ChronoCrossMarket, OpenEyeBlind, BuyingWinnerSellingLoser} = requi
 
         let start = new Date();
 
-        let market = await ChronoCrossMarket.fromFile(file);
+        let market = await ChronoCrossMarket.fromFile(file); // +2s
         let agent = new Agent(market, new BuyingWinnerSellingLoser(1));
-        await agent.workToday();
+        await agent.workToday(); // fetchTicker: +2s strategy: +1s
 
         let cost = new Date() - start;
 
-        let report = agent.broker.report;
+        // let report = agent.broker.report;
         console.log(cost + 'ms');
-        console.log(file);
-        console.log(report.toString());
+        // console.log(file);
+        // console.log(report.toString());
     }
 })();
